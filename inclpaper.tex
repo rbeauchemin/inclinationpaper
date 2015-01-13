@@ -1,0 +1,231 @@
+%% This is emulateapj reformatting of the AASTEX sample document
+%%
+\documentclass{emulateapj}
+
+%% You can insert a short comment on the title page using the command below.
+
+\slugcomment{Report for AST4723}
+
+%% If you wish, you may supply running head information, although
+%% this information may be modified by the editorial offices.
+%% The left head contains a list of authors,
+%% usually a maximum of three (otherwise use et al.).  The right
+%% head is a modified title of up to roughly 44 characters.
+%% Running heads will not print in the manuscript style.
+
+\shorttitle{Insert a short title here}
+\shortauthors{Insert your last name here (or your name et al. if multiple people)}
+
+%% This is the end of the preamble.  Indicate the beginning of the
+%% paper itself with \begin{document}.
+
+\begin{document}
+
+%% LaTeX will automatically break titles if they run longer than
+%% one line. However, you may use \\ to force a line break if
+%% you desire.
+
+\title{Insert Title Here}
+
+%% Use \author, \affil, and the \and command to format
+%% author and affiliation information.
+%% Note that \email has replaced the old \authoremail command
+%% from AASTeX v4.0. You can use \email to mark an email address
+%% anywhere in the paper, not just in the front matter.
+%% As in the title, use \\ to force line breaks.
+
+\author{Insert Your Full Name Here}
+\affil{Astronomy Department, University of Florida, Gainesville, FL 32611}
+\email{yourname@astro.ufl.edu}
+
+\author{Names of second author -- delete if not relevant}
+\affil{Astronomy Department, University of Florida, Gainesville, FL 32611}
+
+\and
+
+\author{Name of Third author -- delete if not relevant}
+\affil{Space Telescope Science Institute, Baltimore, MD 21218}
+
+
+%% Mark off your abstract in the ``abstract'' environment. In the manuscript
+%% style, abstract will output a Received/Accepted line after the
+%% title and affiliation information. No date will appear since the author
+%% does not have this information. The dates will be filled in by the
+%% editorial office after submission.
+
+\begin{abstract}
+This project was undertaken for this reason and what we found was...
+\end{abstract}
+
+\section{Introduction}
+
+The introduction should contain sufficient
+background on the topic of your research that the reader understands what
+you are doing and why. It is important here and elsewhere in the paper to
+cite references when appropriate. While one can do this manually -- e.g
+(Vollbach et al. 1997), the easiest was to do this is with bibtex and the
+cite commands, because this automatically updates the references in both
+the text and the reference list at the end. For example, you can put the
+reference \cite{hamann2008}, or if you want it in line rather than in
+braces, then \citet{hamann2008}. To compile the documents you must then
+also have a .bib file (e.g. ast4723.bib) that contains the ADS bibtex entry, with
+the article name given as hamann2008, as in the example with this document.
+The document are then compiled by typing:
+
+bibtex ast4723
+latex ast4723.tex ; dvips -o ast4723.ps ast4723.dvi
+latex ast4723.tex ; dvips -o ast4723.ps ast4723.dvi
+
+Mote that you have to latex it twice after adding references for all the references
+to get updated.
+The following examples of sections are intended to provide a rough guideline for how
+you may wish to structure your paper. You are not required to maintain this format,
+but should use a similar, sensible approach.
+
+You may need to have emulateapj.cls in the same directory as your document.
+
+
+\section{Observations}
+
+In this section you should describe your observations. Look at a real paper (or
+at least the sample.tex file with emulateapj) to get an idea for what is appropriate
+in this section. Be sure to include information about what nights you observed
+and any key issues related to your data quality.  If you are using archival data,
+then you should describe when the data was originally obtained and still describe 
+things such as the instrument and telescope.
+
+\section{Data Reductions}
+
+This section is your chance to describe everything that you did to process your data.
+List clearly how you reduced the data and did the photometry. If you wish to divide
+this into subsections, you can do so as illustrated below.
+\subsection{Bias Subtraction and Flatfielding}
+To subtract the bias, we...
+\subsection{Really weird stuff that I had to do for my data}
+There was a bad region shaped like a parrot in the middle of the detector, which required...
+\subsection{Image Stacking}
+We aligned the images using...
+\subsection{Photometric Calibration}
+
+\section{Data Analysis}
+
+This section should describe the scientific analysis done for your project. If you are
+making a light curve for example, here is where you would describe how you made it and what you measured.
+Remember that your write-up should contain figures, such as Figure \ref{fig:test}. Note that this
+reference to the figure is collected to a label in the figure caption, so if you add others the
+number will automatically update
+
+\begin{figure}
+\plotone{fig1.pdf}
+\caption{An example of a figure included in the text. \label{fig:test}}
+\end{figure}
+
+\section{Results and Discussion (can easily be separate sections)}
+
+Fairly self explanatory. You should think carefully about what your results 
+mean. Speculation is good, but it should be grounded in the data -- wild
+speculation is bad.  If you want to add any equations in the text, this
+can be done in the fashion below. Note that the online latex references, 
+including the ones linked off the web page, provide the necessary information
+for constructing more complex equations. If you want to include equation
+symbols inline in the text, then you place them between dollar signs, as
+shown below.
+
+Consider the equation
+\begin{equation}
+\bar v = \exp(\tau^{-1})
+\end{equation}
+where $\bar v$ is the mean velocity of a purple balloon, and $\tau$ is
+the mean free path of the balloon. If we have a velocity $\bar v = 5\pm1$ km s$^{-1}$,
+what is $\tau$?
+
+One last item that we have not discussed is tables. There is an example in this
+document in Table \ref{tab:test}, which is the same as in sample.tex.
+
+\acknowledgments
+
+Anyone whom you would like to thank would go in this section (not required). 
+
+
+\appendix
+
+\section{Appendix material}
+
+If you want to go into a lot of detail about something that you feel doesn't belong
+in the main part of the paper, this would be the place to do it. 
+
+For this document, I will simply note that for the bibliographies, the manual
+way of including a bibliography is
+\begin{verbatim}
+\begin{thebibliography}{}
+\bibitem[Auri\`ere(1982)]{aur82} Auri\`ere, M.  1982, \aap,
+    109, 301
+\bibitem[Canizares et al.(1978)]{can78} Canizares, C. R.,
+    Grindlay, J. E., Hiltner, W. A., Liller, W., \&
+    McClintock, J. E.  1978, \apj, 224, 39
+\bibitem[Djorgovski \& King(1984)]{djo84} Djorgovski, S.,
+    \& King, I. R.  1984, \apjl, 277, L49
+\bibitem[Hagiwara \& Zeppenfeld(1986)]{hag86} Hagiwara, K., \&
+    Zeppenfeld, D.  1986, Nucl.Phys., 274, 1
+\bibitem[Harris \& van den Bergh(1984)]{har84} Harris, W. E.,
+    \& van den Bergh, S.  1984, \aj, 89, 1816
+\bibitem[King(1966)]{kin66}  King, I. R.  1966, \aj, 71, 276
+\bibitem[Ortolani et al.(1985)]{ort85} Ortolani, S., Rosino, L.,
+    \& Sandage, A.  1985, \aj, 90, 473
+\bibitem[Peterson(1976)]{pet76} Peterson, C. J.  1976, \aj, 81, 617
+\end{thebibliography}
+\end{verbatim}
+
+while the automated way, assuming that you have generated a .bib file is
+\begin{verbatim}
+\bibliographystyle{apj}
+\bibliography{ast4723}
+\end{verbatim}
+
+which for the file ast4723.bib and this tex file generates the reference list
+seen below. A nice aspect of this approach is that if you don't use a reference
+in the paper it automatically gets removed from the reference list at the end.
+The one additional file that you need to have for this approach is apj.bst,
+which is posted on the web page.
+
+
+\bibliographystyle{apj}
+\bibliography{ast4723}
+
+\clearpage
+
+\begin{deluxetable}{ccrrrrrrrrcrl}
+\tabletypesize{\scriptsize}
+\tablecaption{Sample table taken from \citet{treu03}\label{tbl-1}}
+\tablewidth{0pt}
+\tablehead{
+\colhead{POS} & \colhead{chip} & \colhead{ID} & \colhead{X} & \colhead{Y} &
+\colhead{RA} & \colhead{DEC} & \colhead{IAU$\pm$ $\delta$ IAU} &
+\colhead{IAP1$\pm$ $\delta$ IAP1} & \colhead{IAP2 $\pm$ $\delta$ IAP2} &
+\colhead{star} & \colhead{E} & \colhead{Comment}
+}
+\startdata
+0 & 2 & 1 & 1370.99 & 57.35    &   6.651120 &  17.131149 & 21.344$\pm$0.006  & 2 4.385$\pm$0.016 & 23.528$\pm$0.013 & 0.0 & 9 & -    \\
+0 & 2 & 2 & 1476.62 & 8.03     &   6.651480 &  17.129572 & 21.641$\pm$0.005  & 2 3.141$\pm$0.007 & 22.007$\pm$0.004 & 0.0 & 9 & -    \\
+0 & 2 & 3 & 1079.62 & 28.92    &   6.652430 &  17.135000 & 23.953$\pm$0.030  & 2 4.890$\pm$0.023 & 24.240$\pm$0.023 & 0.0 & - & -    \\
+0 & 2 & 4 & 114.58  & 21.22    &   6.655560 &  17.148020 & 23.801$\pm$0.025  & 2 5.039$\pm$0.026 & 24.112$\pm$0.021 & 0.0 & - & -    \\
+0 & 2 & 5 & 46.78   & 19.46    &   6.655800 &  17.148932 & 23.012$\pm$0.012  & 2 3.924$\pm$0.012 & 23.282$\pm$0.011 & 0.0 & - & -    \\
+0 & 2 & 6 & 1441.84 & 16.16    &   6.651480 &  17.130072 & 24.393$\pm$0.045  & 2 6.099$\pm$0.062 & 25.119$\pm$0.049 & 0.0 & - & -    \\
+0 & 2 & 7 & 205.43  & 3.96     &   6.655520 &  17.146742 & 24.424$\pm$0.032  & 2 5.028$\pm$0.025 & 24.597$\pm$0.027 & 0.0 & - & -    \\
+0 & 2 & 8 & 1321.63 & 9.76     &   6.651950 &  17.131672 & 22.189$\pm$0.011  & 2 4.743$\pm$0.021 & 23.298$\pm$0.011 & 0.0 & 4 & edge \\
+\enddata 
+%% Text for table notes should follow after the \enddata but before %% the \end{deluxetable}. Make sure there is at least one \tablenotemark
+%% in the table for each \tablenotetext.  
+\tablecomments{Table \ref{tbl-1} is published in its entirety in the electronic edition of the {\it Astrophysical Journal}. A portion is shown here for guidance
+regarding its form and content.}
+
+\tablenotetext{a}{Sample footnote for table~\ref{tbl-1} that was generated
+with the deluxetable environment}
+\tablenotetext{b}{Another sample footnote for table~\ref{tbl-1}}
+
+\end{deluxetable}
+
+\end{document}
+
+%%
+%% End of file `sample.tex'.
