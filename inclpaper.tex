@@ -1,10 +1,11 @@
 %% This is emulateapj reformatting of the AASTEX sample document
 %%
 \documentclass{emulateapj}
+\usepackage{amsmath}
 
 %% You can insert a short comment on the title page using the command below.
 
-\slugcomment{Report for AST4723}
+\slugcomment{Report for Independent Research}
 
 %% If you wish, you may supply running head information, although
 %% this information may be modified by the editorial offices.
@@ -13,8 +14,8 @@
 %% head is a modified title of up to roughly 44 characters.
 %% Running heads will not print in the manuscript style.
 
-\shorttitle{Insert a short title here}
-\shortauthors{Insert your last name here (or your name et al. if multiple people)}
+\shorttitle{Determination of Kinematic Inclinations}
+\shortauthors{Beauchemin}
 
 %% This is the end of the preamble.  Indicate the beginning of the
 %% paper itself with \begin{document}.
@@ -25,7 +26,7 @@
 %% one line. However, you may use \\ to force a line break if
 %% you desire.
 
-\title{Insert Title Here}
+\title{A New Method of Determining Galaxy Inclinations from Kinematic Measurements}
 
 %% Use \author, \affil, and the \and command to format
 %% author and affiliation information.
@@ -34,17 +35,17 @@
 %% anywhere in the paper, not just in the front matter.
 %% As in the title, use \\ to force line breaks.
 
-\author{Insert Your Full Name Here}
-\affil{Astronomy Department, University of Florida, Gainesville, FL 32611}
-\email{yourname@astro.ufl.edu}
+\author{Ryan Beauchemin}
+\affil{Department of Physics and Astronomy, University of North Carolina at Chapel Hill}
+\email{rwbeauchemin@unc.edu}
 
-\author{Names of second author -- delete if not relevant}
-\affil{Astronomy Department, University of Florida, Gainesville, FL 32611}
+%\author{Names of second author -- delete if not relevant}
+%\affil{Astronomy Department, University of Florida, Gainesville, FL 32611}
 
-\and
+%\and
 
-\author{Name of Third author -- delete if not relevant}
-\affil{Space Telescope Science Institute, Baltimore, MD 21218}
+%\author{Name of Third author -- delete if not relevant}
+%\affil{Space Telescope Science Institute, Baltimore, MD 21218}
 
 
 %% Mark off your abstract in the ``abstract'' environment. In the manuscript
@@ -54,9 +55,42 @@
 %% editorial office after submission.
 
 \begin{abstract}
-This project was undertaken for this reason and what we found was...
+The distribution of inclinations of spiral galaxies in any area in the sky is expected to be completely random in an isotropic universe. Surprisingly, we find that this is not the case when using inclinations determined from the projected shape of the galaxy, which we call photometric inclinations. We have compared photometric inclinations with kinematic inclinations, which are derived from the distribution of Doppler shifted velocities in the galaxy as measured by the 4.1m SOAR telescope and Goodman spectrograph. We also compare results from two different codes for measuring kinematic inclinations. The first code is called DiskFit, and it takes a number of points in discrete elliptical annuli and fits based on the averages of velocities within those annuli. The second is one that we developed that uses all data points simultaneously. We quantify the differences between the two fitting methods to determine the success of their application as a function of galaxy size and shape. 
 \end{abstract}
 
+\section{Background}
+
+In the UNC-led REsolved Spectroscopy Of a Local VolumE (RESOLVE) survey, all galaxies in a nearby volume are observed regardless of size or luminosity in what is considered to be a volume-limited fashion. This is much more statistically representative of the composition of our universe on a larger scale than the classical approach that is limited by apparent brightness, where one obtains data for only the brightest galaxies, ones which are not very common in the universe. Though these surveys give us a good idea about the large scale structure of the universe, it is also pertinent to our understanding of the universe that we explore the small scale details that make this up. The RESOLVE team members at UNC are well-situated to observe local environments because UNC, as a partner, is guaranteed a portion of time every year and competes nationally for more time on the 4.1 meter SOAR telescope, which has been erected in Chile and is capable of taking highly-resolved (0.22 arc seconds per pixel) spectra of galaxies. With the large number of observed galaxies in the RESOLVE survey, we can now determine how photometric properties might change in the RESOLVE survey with the expectation that most of them should be random in the volume-limited sample. A property which, when examined, gave interesting results was photometric inclination.
+
+\section{Photometric Inclination}
+
+Inclinations are defined as the projected tilt of a disk galaxy ranging from 0 to 90 degrees, or from face-on to edge-on. We have analyzed the galaxies photometrically, using the axial ratio of the projected ellipse to determine its inclination by the formula
+
+\begin{equation}
+i = cos^{-1}(((q^2-q_0^2)/(1-q_0^2))^{1/2})
+\end{equation}
+
+where $q$ is the major to minor axial ratio and $q_0$ is the ratio at an inclination of 90 degrees. Since disk galaxies are not flat, $q_0$ must be greater than 0, and is taken to be 0.2, as determined by Holmberg (1946). We find that the distribution of photometrically determined inclinations for disk galaxies is not random, as can be seen in Fig. 1.
+
+\begin{figure}
+\plotone{photincldistr.png}
+\caption{The distribution of photometric inclinations in the RESOLVE survey. If the measurement was truly random, this distribution should be fairly flat. \label{fig:test}}
+\end{figure}
+
+The question then is why this is the case, since we would expect there to be no preference in a volume-limited survey. The root of this problem may lie in either the way that photometric inclinations are calculated or in our understanding of the intrinsic shapes of disk galaxies. I have been working towards ruling out one of these options in answering the question: Is our current method of photometric inclination determination sound, and if not, what photometric properties cause this error? This is an important question to tackle because galactic astronomers have for almost a century been using a simple equation which assumes a lot about the shape and structure of a galaxy, and has not yet been tested vigorously for success. We present a method which may be used to test this against the distribution of Doppler velocities, which we believe to be more accurate due to the fact that photometric inclinations are determined from a two-dimensional projection of a three-dimensional shape, whereas Doppler velocities give kinematic information that transcends projection effects.
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% YOU STOPPED HERE LAST %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Disk Fitting}
+
+To do this, we observe galaxies using the SOAR telescope, UNC's Goodman spectrograph, and a custom-built spectrograph image slicer that allows up to three nearby spectra to be taken at once without overlap. With two different ways of measuring inclination, we can make a comparison between measurements in the two methods and other properties of galaxies to see where these differences might come from. With the belief that the kinematic method provides a more accurate representation of a galaxy's true inclination, this also means that we could expose faults in the measurement of photometric inclinations. A publicly available code called DiskFit (Barnes and Sellwood 2003) is capable of fitting the velocity field data that we have to a model profile given initial guesses to the position angle and galaxy center. Using DiskFit to model velocity fields for $\sim$100 galaxies, we have found there to be no clear link between the differences in inclination measurements and galaxy properties such as total baryonic mass, rotation curve asymmetry, 90\% r-band radii, or morphology, but we did find some problems fitting small, asymmetric, or barred structures in the disk-fitting algorithm. This makes sense because the model requires a lot of points and assumes the rotation curve to be inherently smooth, but these perturbations might easily be misinterpreted, especially with the weight they would have in a small annulus.
+
+\section{Solution}
+
+To remedy this, we have begun the creation of a new algorithm that uses all of the data simultaneously, without the necessity of fitting disk annuli to it. We first find the center of kinematic rotation in the Doppler velocity field, then we use equations from Teuben (2002) that provide a translation from projected velocities to rotational velocities. Next, we map out the rotation curve of the galaxy and fit the rotation curve to the functions described by Courteau (1997) using minimum chi squared minimization techniques in Python. It has been found that there is a distinct advantage in doing this for small galaxies that do not have enough data in each annulus to make a clear disk but still have enough information to give a kinematic profile. So far, we have found that kinematic inclinations are more random than their photometric counterparts, but we still have not compared the differences with other photometric properties, as we did before with the DiskFit models.
 \section{Introduction}
 
 The introduction should contain sufficient
@@ -114,11 +148,6 @@ making a light curve for example, here is where you would describe how you made 
 Remember that your write-up should contain figures, such as Figure \ref{fig:test}. Note that this
 reference to the figure is collected to a label in the figure caption, so if you add others the
 number will automatically update
-
-\begin{figure}
-\plotone{fig1.pdf}
-\caption{An example of a figure included in the text. \label{fig:test}}
-\end{figure}
 
 \section{Results and Discussion (can easily be separate sections)}
 
