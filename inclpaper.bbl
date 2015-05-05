@@ -1,0 +1,30 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Barnes} \& {Sellwood}(2003)}]{barnes}
+{Barnes}, E.~I., \& {Sellwood}, J.~A. 2003, \aj, 125, 1164
+
+\bibitem[{{Courteau}(1997)}]{courteau}
+{Courteau}, S. 1997, \aj, 114, 2402
+
+\bibitem[{{Holmberg}(1958)}]{holmberg}
+{Holmberg}, E. 1958, Meddelanden fran Lunds Astronomiska Observatorium Serie
+  II, 136, 1
+
+\bibitem[{{Hubble}(1926)}]{hubble}
+{Hubble}, E.~P. 1926, \apj, 64, 321
+
+\bibitem[{{Markwardt}(2009)}]{mpfit}
+{Markwardt}, C.~B. 2009, in Astronomical Society of the Pacific Conference
+  Series, Vol. 411, Astronomical Data Analysis Software and Systems XVIII, ed.
+  D.~A. {Bohlender}, D.~{Durand}, \& P.~{Dowler}, 251
+
+\bibitem[{{Teuben}(2002)}]{teuben}
+{Teuben}, P.~J. 2002, in Astronomical Society of the Pacific Conference Series,
+  Vol. 275, Disks of Galaxies: Kinematics, Dynamics and Peturbations, ed.
+  E.~{Athanassoula}, A.~{Bosma}, \& R.~{Mujica}, 217--228
+
+\bibitem[{{Tully} \& {Fisher}(1977)}]{tullyfish}
+{Tully}, R.~B., \& {Fisher}, J.~R. 1977, \aap, 54, 661
+
+\end{thebibliography}

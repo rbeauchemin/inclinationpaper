@@ -1,0 +1,84 @@
+@CONTROL{REVTEX41Control}
+@CONTROL{apsrev41Control,author="08",editor="1",pages="0",title="",year="1"}
+
+@ARTICLE{hubble,
+   author = {{Hubble}, E.~P.},
+    title = "{Extragalactic nebulae.}",
+  journal = {\apj},
+     year = 1926,
+    month = dec,
+   volume = 64,
+    pages = {321-369},
+      doi = {10.1086/143018},
+   adsurl = {http://adsabs.harvard.edu/abs/1926ApJ....64..321H},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{holmberg,
+   author = {{Holmberg}, E.},
+    title = "{A photographic photometry of extragalactic nebulae.}",
+  journal = {Meddelanden fran Lunds Astronomiska Observatorium Serie II},
+     year = 1958,
+   volume = 136,
+    pages = {1},
+   adsurl = {http://adsabs.harvard.edu/abs/1958MeLuS.136....1H},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{tullyfish,
+   author = {{Tully}, R.~B. and {Fisher}, J.~R.},
+    title = "{A new method of determining distances to galaxies}",
+  journal = {\aap},
+ keywords = {Distance Measuring Equipment, H Lines, Luminous Intensity, Spectral Line Width, Spiral Galaxies, Telescopes, Astronomical Photometry, Calibrating, Galactic Clusters, Galactic Structure, Hubble Diagram, Synoptic Measurement},
+     year = 1977,
+    month = feb,
+   volume = 54,
+    pages = {661-673},
+   adsurl = {http://adsabs.harvard.edu/abs/1977A%26A....54..661T},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{teuben,
+   author = {{Teuben}, P.~J.},
+    title = "{Velocity Fields of Disk Galaxies}",
+booktitle = {Disks of Galaxies: Kinematics, Dynamics and Peturbations},
+     year = 2002,
+   series = {Astronomical Society of the Pacific Conference Series},
+   volume = 275,
+   eprint = {astro-ph/0204471},
+   editor = {{Athanassoula}, E. and {Bosma}, A. and {Mujica}, R.},
+    month = dec,
+    pages = {217-228},
+   adsurl = {http://adsabs.harvard.edu/abs/2002ASPC..275..217T},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{barnes,
+   author = {{Barnes}, E.~I. and {Sellwood}, J.~A.},
+    title = "{Uncertainties in Spiral Galaxy Projection Parameters}",
+  journal = {\aj},
+   eprint = {astro-ph/0211225},
+ keywords = {Galaxies: Fundamental Parameters, Galaxies: Kinematics and Dynamics, Galaxies: Photometry},
+     year = 2003,
+    month = mar,
+   volume = 125,
+    pages = {1164-1176},
+      doi = {10.1086/346142},
+   adsurl = {http://adsabs.harvard.edu/abs/2003AJ....125.1164B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{courteau,
+   author = {{Courteau}, S.},
+    title = "{Optical Rotation Curves and Linewidths for Tully-Fisher Applications}",
+  journal = {\aj},
+   eprint = {astro-ph/9709201},
+ keywords = {GALAXIES: SPIRAL, GALAXIES: KINEMATICS AND DYNAMICS, LOCAL GROUP, GALAXIES: FUNDAMENTAL PARAMETERS},
+     year = 1997,
+    month = dec,
+   volume = 114,
+    pages = {2402},
+      doi = {10.1086/118656},
+   adsurl = {http://adsabs.harvard.edu/abs/1997AJ....114.2402C},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
