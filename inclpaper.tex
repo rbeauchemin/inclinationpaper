@@ -28,6 +28,7 @@
 
 \title{Determining Galaxy Inclinations from Kinematics}
 
+
 %% Use \author, \affil, and the \and command to format
 %% author and affiliation information.
 %% Note that \email has replaced the old \authoremail command
@@ -35,7 +36,7 @@
 %% anywhere in the paper, not just in the front matter.
 %% As in the title, use \\ to force line breaks.
 
-\author{Ryan Beauchemin, Sheila Kannappan, Charlie Bonfield}
+\author{Ryan Beauchemin, Charlie Bonfield, Kirsten Hall, Sheila Kannappan}
 \affil{Department of Physics and Astronomy, University of North Carolina at Chapel Hill}
 %\email{rwbeauchemin@unc.edu}
 
@@ -54,8 +55,9 @@
 %% does not have this information. The dates will be filled in by the
 %% editorial office after submission.
 
-\begin{abstract}
-The distribution of inclinations of spiral galaxies in any area in the sky is expected to be completely random in an isotropic universe. Surprisingly, we find that this is not the case when using inclinations determined from the projected shape of the galaxy or photometric inclinations. We have compared photometric inclinations with kinematic inclinations, which are derived from the distribution of Doppler shifted velocities in the galaxy as measured by the 4.1m SOAR telescope and Goodman spectrograph. We also compare results from two different codes for measuring kinematic inclinations. The first code is called DiskFit, and it takes a number of points in discrete elliptical annuli and fits based on the averages of velocities within those annuli. The second is one that we developed that uses all data points simultaneously, called Velocity Field Fitter (VFF). We quantify the differences between the two fitting methods to determine the success of their application as a function of galaxy size and shape. 
+\vspace{1cm}\begin{abstract}
+%The distribution of inclinations of spiral galaxies in any area in the sky is expected to be completely random in an isotropic universe. Surprisingly, we find that this is not the case when using inclinations determined from the projected shape of the galaxy or photometric inclinations. 
+\large We compare photometric inclinations with kinematic inclinations, derived from the distribution of Doppler shifted velocities for galaxies of the RESOLVE survey, using data taken by the 4.1m SOAR telescope and Goodman spectrograph. To measure the velocities, we determine the kinematic inclinations first using the publicly available DiskFit routine, which takes a number of points in discrete elliptical annuli and fits based on the radial averages of velocities within those annuli. Finding problems in the output of DiskFit for galaxies that are poorly-sampled, we develop a code that uses all data points simultaneously: Velocity Field Fitter (VFF). We intend to implement this code in the same manner, but we first quantify the differences between the two fitting methods by testing how they fare when high turbulence is added to an artificial velocity field or when the amount of velocity field points is low. This is done in order to determine the success of their application as turbulence and sampling are varied. 
 \end{abstract}
 
 %---------------------------------------------------------------------------------%
@@ -63,41 +65,37 @@ The distribution of inclinations of spiral galaxies in any area in the sky is ex
 %---------------------------------------------------------------------------------%
 
 \section{Introduction}
-\subsection{The RESOLVE Survey}
-In the UNC-led REsolved Spectroscopy Of a Local VolumE (RESOLVE) survey, all galaxies in a nearby volume are observed regardless of size or luminosity in what is considered to be a volume-limited fashion. This is much more statistically representative of the composition of our universe on a larger scale than the classical approach that is limited by apparent brightness, where one obtains data for only the brightest galaxies, ones which are not very common in the universe. Though these surveys give us a good idea about the large scale structure of the universe, it is also pertinent to our understanding of the universe that we explore the small scale details that make this up. The RESOLVE team members at UNC are well-situated to observe local environments because UNC, as a partner, is guaranteed a portion of time every year and competes nationally for more time on the 4.1 meter SOAR telescope, which has been erected in Chile and is capable of taking highly-resolved (0.22 arc seconds per pixel) spectra of galaxies. With the large number of observed galaxies in the RESOLVE survey, we can determine how photometric properties might change in the RESOLVE survey with the expectation that most of them should be random in the volume-limited sample. When examined, the distribution of photometric inclinations were not as expected.
+
+\large The distribution of spiral galaxies in any area in the sky is expected to be completely random in an isotropic universe. It is fairly common in a luminosity-limited survey to purport any deviation from randomness to the fact that smaller or more edge-on galaxies give off less light. However, in our volume-limited REsolved Spectroscopy Of a Local VolumE (RESOLVE) galaxy survey it is found that the distribution of observed axial ratios expected when randomly looking this is not the case when using inclinations determined from the projected shape of a galaxy, or photometric inclinations. In this section, I motivate why photometric inclinations could be inaccurate, why kinematic inclinations are needed, and why the RESOLVE survey helps us to understand the differences.
 
 \subsection{Photometric Inclination}
 
-Inclinations are defined as the projected tilt of a disk galaxy ranging from 0 to 90 degrees, or from face-on to edge-on. We have analyzed the galaxies photometrically, using the axial ratio of the projected ellipse to determine its inclination by the classic formula from \citet{hubble}
+\large Inclinations are defined as the projected tilt of a disk galaxy ranging from 0 to 90 degrees, or from face-on to edge-on. We have analyzed galaxies of the RESOLVE catalog photometrically using the axial ratio of the projected ellipse to determine its inclination by the classic formula from \citet{hubble}
 
 \begin{equation}
 i = cos^{-1}(((q^2-q_0^2)/(1-q_0^2))^{1/2})
 \end{equation}
 
-\noindent where $q$ is the major to minor axial ratio and $q_0$ is the ratio at an inclination of 90 degrees. Since disk galaxies are not flat, $q_0$ must be greater than 0, and is taken to be 0.2, as determined by \citet{holmberg}. We find that the distribution of photometrically determined inclinations for disk galaxies is not random, as can be seen in Figure 1.
+\noindent \large where $q$ is the major to minor axial ratio and $q_0$ is the ratio at an inclination of 90 degrees. Since disk galaxies are not flat, $q_0$ must be greater than 0, and is taken to be 0.2, as determined by \citet{holmberg}. The axial ratios for this equation are found using SDSS data and the IRAF ``ellipse'' task to map an ellipse to the outer isophotes of our galaxies.
 
-\begin{figure}
-\includegraphics[width=0.5\textwidth]{hist1.pdf}
-\caption{The distribution of photometric inclinations in the RESOLVE survey. If the measurement was truly random, this distribution should be fairly flat. \label{fig:test}}
-\end{figure}
+%\begin{figure}
+%\includegraphics[width=0.5\textwidth]{hist1.pdf}
+%\caption{The distribution of photometric inclinations in the RESOLVE survey. If the measurement was truly random, this distribution should be fairly flat. \label{fig:test}}
+%\end{figure}
 
-We are interested in finding why this is the case, since we would expect there to be no preference in a volume-limited survey. The root of this problem may lie in either the way that photometric inclinations are calculated or in our understanding of the intrinsic shapes of disk galaxies. I have been working towards ruling out one of these options in answering the question: Is our current method of photometric inclination determination sound, and if not, what photometric properties cause this error? This is an important question to tackle because galactic astronomers have for almost a century been using a simple equation which assumes a lot about the shape and structure of a galaxy, and has not yet been tested vigorously for robustness. Luckily, there is another way to determine the inclination of galaxies that assumes much less about the structure.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% YOU STOPPED HERE LAST %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\large We are interested in finding why this is the case, as we would expect there to be no preference in a volume-limited survey. The root of this problem may lie in either the way that photometric inclinations are calculated or in our understanding of the intrinsic shapes of disk galaxies. I have been working towards ruling out one of these options in answering the question: Is our current method of photometric inclination determination sound, and if not, what photometric properties cause this error? This is an important question to tackle because, for almost a century, galactic astronomers have been using an equation that assumes a lot about the shape and structure of a galaxy but has not yet been tested vigorously for robustness. Luckily, there is another way to determine the inclination of galaxies that assumes much less about the structure, using its kinematics.
 
 \subsection{Kinematic Inclination}
 
-Kinematic inclinations are inclinations found from the observed velocity fields of spiral galaxies. These galaxies are rotating about a central point, and the line-of-sight velocities from Doppler shifting can be detected by a spectrograph to determine the average velocities of baryonic matter in the line of sight. Using the maximum velocity calculated from luminosity as described by \citet{tullyfish}, one may determine how far from edge-on a galaxy is. This can be done because an observed edge-on galaxy would have almost all of its velocity in the line of sight, whereas a face-on galaxy would show only the cosmological redshift at most of the points in the galaxy. One may model the continuum of possible inclinations based on the velocity fields. This can be seen in the equation relating projected velocities with inherent velocities described by \citet{teuben}
-
+\large Kinematic inclinations are inclinations found from the observed velocity fields of spiral galaxies. These galaxies rotate about a central point and their line-of-sight velocities from Doppler shifting can be detected by a spectrograph to determine the average velocities of baryonic matter in the line of sight. Using the velocity field data with the maximum velocity calculated from luminosity as described by \citet{tullyfish}, one may determine how far a galaxy is from edge-on. This can be done because an observed edge-on galaxy would have almost all of its velocity in the line of sight. In contrast, a face-on galaxy would show only the cosmological redshift at most of the points in the galaxy. One may model the distribution of possible inclinations based on the velocity fields. This can be seen in the equation relating projected velocities with inherent velocities described by \citet{teuben}
 \begin{equation}
-V = V_{sys}+V_{rot}(R)\cos{\theta}\sin{i} + V_{exp}(R)\sin{\theta}\sin{i}
+\large V(x,y) = V_{sys}+V_{rot}(R)\cos{\theta}\sin{i}
 \end{equation}
 
-\noindent where $\theta$ is the angle of the deprojected galaxy, and $i$ is the inclination from (1). We believe that the kinematic method of inclination measurement is more accurate because it makes less assumptions about the intrinsic properties of a spiral galaxy. There are processes which can tidally disturb the velocities in some regions of galaxies, but the effects appear to be minimal when determining the inclination on a larger scale. With two different ways of measuring inclination, we have made a comparison of measurements using the two methods and how their differences relate to other properties of galaxies to see where these differences might come from. With the belief that the kinematic method provides a more accurate representation of a galaxy's true inclination, this also means that we might expose faults in the measurement of photometric inclinations. 
+\noindent \large where $\theta$ is the angle of the deprojected galaxy, and $i$ is the inclination from (1). We believe that the kinematic method of inclination measurement is more accurate because, by probing a third dimension, it makes less assumptions about the intrinsic properties of a spiral galaxy. Processes exist with the ability to tidally disturb velocities in some regions of galaxies, but the effects appear to be minimal when determining the inclination on a larger scale. With two different ways of measuring inclination, we have made a comparison of measurements using the two methods and how their differences relate to other properties of galaxies in order to see from where these differences arise. With the belief that the kinematic method provides a more accurate representation of a galaxy's true inclination, this also means that we might expose faults in the measurement of photometric inclinations.
 
-
+\subsection{The RESOLVE Survey}
+\large In the UNC-led RESOLVE, all galaxies in a nearby volume are observed regardless of size or luminosity. RESOLVE is considered to be volume-limited: Galaxies are selected between two redshifts and in a smaller, more resolved area in the sky. This type of survey is much more statistically representative of the composition of our universe than the classical approach which is limited by apparent brightness. In the latter approach, one obtains data for only the brightest galaxies. Such galaxies are not as common in the universe as dwarf or irregular galaxies. Though these surveys give us a good idea about the large scale structure of the universe, it is also pertinent to our understanding of the universe that we explore the details of the small-scale structure that makes up the large-scale structure. The RESOLVE team members at UNC are well-situated to observe local environments because UNC, as a partner, is guaranteed a portion of time every year and competes nationally for more time on the 4.1 meter SOAR telescope, located in Chile. The SOAR telescope is capable of taking highly-resolved (0.22 arc seconds per pixel) spectra of galaxies, and has an Atmospheric Dispersion Corrector (ADC). With the large number of observed galaxies in the RESOLVE survey, we can look at the distribution of photometric properties such as axial ratio, morphology, baryonic mass, and more with the expectation that most of them should be random in a volume-limited sample.
 %---------------------------------------------------------------------------------%
 %                                  Section 2: Data                                %
 %---------------------------------------------------------------------------------%
@@ -109,7 +107,7 @@ V = V_{sys}+V_{rot}(R)\cos{\theta}\sin{i} + V_{exp}(R)\sin{\theta}\sin{i}
 \end{figure}
 
 
-\section{Data}
+\section{Data and Sample}
 
 \begin{figure}
 \includegraphics[width=0.5\textwidth]{naxisratio-eps-converted-to.pdf}
@@ -120,39 +118,48 @@ V = V_{sys}+V_{rot}(R)\cos{\theta}\sin{i} + V_{exp}(R)\sin{\theta}\sin{i}
 \caption{Baryonic mass against axial ratio, rotation curve asymmetry, morphology, and 90\% r band light radius. \label{fig:test}}
 \end{figure}
 
-We observe galaxies using the 4.1m SOAR telescope and collect spectra using it's GOODMAN spectrograph with a custom-built spectrograph image slicer that allows up to three nearby spectra to be taken at once without overlap. All data is reduced through a pipeline created by the RESOLVE team. Of the galaxies in the survey, a subsample including all previously reduced data was selected for the comparison of photometric and kinematic inclinations. To ensure that the sample was representative of the larger survey, we checked various properties of interest based on what we would expect might have an effect on the two dimensional projection of a galaxy and what might have an effect on the observed velocity field, which would in turn affect the photometric and kinematic inclination measurements respectively. Properties that we decided would have an effect are the galaxy's morphology, rotation curve asymmetry, and radius at which 90 percent of the galaxy's r-band light is contained within. For statistical reasons, we also made sure to have a representative distribution of all the axial ratios found within the survey.
+\large We observe galaxies using the 4.1m SOAR telescope and collect spectra using its GOODMAN spectrograph with a custom-built spectrograph image slicer that allows up to three nearby spectra to be taken at once without overlap. All data is reduced through a pipeline created by the RESOLVE team. Of the galaxies in the survey, a subsample including all previously reduced data was selected for the comparison of photometric and kinematic inclinations. To ensure that the sample was representative of the larger survey, we checked various properties of interest based on what we would expect might have an effect on the two dimensional projection of a galaxy or on the observed velocity field. This would in turn affect the photometric and kinematic inclination measurements respectively. Properties determined to have an effect are the galaxy's morphology, rotation curve asymmetry, and radius within which 90 percent of the galaxy's r-band light is contained. For statistical reasons, we also made sure to have a representative distribution of all the axial ratios found within the survey. This sample, when thoroughly examined, contains many very interesting phenomena: There is one galaxy with a hole punched through it, many galaxies that only have one slit of data from being edge-on, more that have rotating satellites, and a few face-on galaxies where one can see the random motions of baryonic matter above and below the plane of the disk. Since we need at least two slits of data to determine a kinematic inclination, we cannot quantify much about most edge-on galaxies, but we hope to be able to determine the inclinations of these other unique cases with our new fitting methods.
 
 
 %---------------------------------------------------------------------------------%
 %                           Section 3: Kinematic Vfitting                         %
 %---------------------------------------------------------------------------------%
 
-\section{Kinematic Velocity Fitting Methods}
+\section{Fitting Methods}
 
 \subsection{DiskFit}
 
-A publicly available code called DiskFit \citep{barnes} is capable of fitting the velocity field data that we have to a model profile given initial guesses to the position angle and galaxy center. Using DiskFit to model velocity fields for $\sim$100 galaxies, we have found there to be no clear link between the differences in inclination measurements and galaxy properties such as total baryonic mass, rotation curve asymmetry, 90\% r-band radii, or morphology, but we did find some problems fitting small, asymmetric, or barred structures in the disk-fitting algorithm. This makes sense because the model requires many points in order to fit at many annuli and the program assumes the rotation curve to be inherently smooth, but perturbations might easily be misinterpreted, especially with the weight they would have in a small annulus.
+\large A publicly available code called DiskFit \citep{barnes} is capable of fitting the velocity field data that we have to a model profile given initial guesses to the position angle and galaxy center. Using DiskFit to model velocity fields for $\sim$100 galaxies, we have found there to be no clear link between the differences in photometric and kinematic inclination measurements and their respective galaxy properties such as total baryonic mass, rotation curve asymmetry, 90\% r-band radii, or morphology, but we did find some problems fitting small, asymmetric, or barred structures in the disk-fitting algorithm. This makes sense because the model requires many points in order to fit at many annuli and the program assumes the rotation curve to be inherently smooth, but perturbations might easily be misinterpreted, especially with the weight they would have in a small annulus.
 
 \subsection{Velocity Field Fitting}
 
-To remedy this, we have created a new algorithm that uses all of the data simultaneously, without the necessity of fitting disk annuli to it. We first find the center of kinematic rotation in the Doppler velocity field, then we use equations from \citet{teuben} that provide a translation from projected velocities to rotational velocities. Next, we map out the rotation curve of the galaxy and fit the rotation curve to the functions described by \citet{courteau} using minimum chi squared minimization techniques described by \citet{mpfit} in Python. We have found that there is a distinct advantage in doing this for small galaxies that do not have enough data in each annulus to make a clear disk but still have enough information to give a reasonable kinematic profile. So far, we have found that kinematic inclinations are more random than their photometric counterparts, but we still have not compared the differences with other photometric properties, as we did before with the DiskFit models.
+\large To remedy this, we have created a new algorithm that uses all of the data simultaneously, without having to fit disk annuli to it. We first find the center of kinematic rotation in the Doppler velocity field, then we use equations from \citet{teuben} that provide a translation from projected velocities to rotational velocities. Next, we map out the rotation curve of the galaxy and fit the rotation curve to the arctan function described by \citet{courteau}
+\begin{equation}
+\large v(r) = V_{0}+\frac{2}{\pi}v_{c}\arctan{R}
+\end{equation}
+
+\noindent \large and using chi squared minimization techniques described by \citet{mpfit} in Python. We have found that there is a distinct advantage in doing this for small galaxies that do not have enough data in each annulus to make a clear disk but still have enough information to give a reasonable kinematic profile. We have found also that kinematic inclinations are more random than their photometric counterparts, but we still have not compared the differences with other photometric properties, as we did before with the DiskFit models.
+
+%%%%% MAKE THAT COMPARISON?? %%%%%%
 
 %---------------------------------------------------------------------------------%
 %                                Section 4: Results                               %
 %---------------------------------------------------------------------------------%
 
 \section{Results}
-We employed various tests on VFF to see whether it holds up well to different problems in fitting velocity fields. Most of these tests involve making a perfect profile, introducing effects, then re-examining the ability for the code to recognize the original profile.
+\large We employed various tests on VFF to see whether it holds up well to different problems in fitting velocity fields. Many of these tests involve first making a perfect velocity field, one which is generated to kinematically match the photometrically determined properties of a galaxy, and then introducing defects, finally examining the ability for the code to recognize properties of the original profile.
+
 \subsection{Perfect Fields}
-As a zeroth order test, we made sure that the re-examination of a perfect field gave exactly the right inclination, and the correlation was a perfect one-to-one for well-sampled fields with no turbulence or other large perturbations in the field. DiskFit performed just as well in this test.
+\large As a zeroth order test, we made sure that the re-examination of a perfect field (example shown in Figure 3) gave exactly the right inclination, and the correlation was a perfect one-to-one for well-sampled fields with no turbulence or other large perturbations in the field. DiskFit performed just as well in this test, which leads us to believe that both methods do very well for well-sampled galaxies.
 
 \begin{figure}[h]
 \includegraphics[width=0.5\textwidth]{perfectexamp.pdf}
-\caption{An example of a velocity field generated to perfectly fit the photometrically determined properties of a galaxy in the sample with three pointings. \label{fig:test}}
+\caption{An example of a velocity field generated by VFF to kinematically match the photometrically determined properties of a galaxy in the sample with three pointings with three slits in each. \label{fig:test}}
 \end{figure}
 
 \subsection{Fields with Turbulence}
-Next, we introduced random Gaussian noise across the perfect velocity field to model turbulence. The re-examination for 60, 120, and 200 km/s yielded a one-to-one correlation with the original dataset. HOW DOES VFF PERFORM VS DISKFIT? PLOT IT
+\large Next, we introduced random Gaussian noise across the perfect velocity field to model turbulence. The re-examination for 60, 120, and 200 km/s yielded a one-to-one correlation with the original dataset. The example with turbulence is shown in Figure 4, and the results are in Figure 5. 
+%%%%%HOW DOES VFF PERFORM VS DISKFIT? PLOT IT
 %%%%%%% MAKE CHANGES HERE %%%%%%%%
 
 
@@ -167,8 +174,10 @@ Next, we introduced random Gaussian noise across the perfect velocity field to m
 \end{figure}
 
 \subsection{Binned Down Perfect Fields}
-This test attempted to determine how the fitting process holds up against binned down data from the perfect fields to simulate the resolution of a realistic observation of a galaxy. In fact, for each galaxy we binned at the locations of the actual data from the RESOLVE survey, and used the distance between it and its nearest neighbor as the binning radius. This test gave DiskFit a lot of trouble, making half of the galaxies fail the Fortran fitting procedure that it employs (BRENT). VFF fit all of the galaxies that this test included, but it did not give a one-to-one correlation to the original properties, and fit on average to a lower inclination than the input. This effect is still being investigated in regards to a possible problem with longslit data, but it is promising that the routine does not give up so easily as DiskFit.
+\large This test attempted to determine how the fitting process holds up against binned down data from the perfect fields to simulate the resolution of a realistic observation of a galaxy. In fact, for each galaxy we binned at the locations of the actual data from the RESOLVE survey, and used the distance between it and its nearest neighbor as the binning radius. This test gave DiskFit a lot of trouble, making half of the galaxies fail the Fortran fitting procedure that it employs (BRENT). VFF fit all of the galaxies that this test included, but it did not give a one-to-one correlation to the original properties, and fit on average to a lower inclination than the input. This effect is still being investigated in regards to a possible problem with longslit data, but it is promising that the routine does not give up so easily as DiskFit.
+
 %%%%%% WRITE FINDINGS FROM CHECKING THIS!!! %%%%%%%%%
+
 \begin{figure}[h]
 \includegraphics[width=0.5\textwidth]{binnedvels.pdf}
 \caption{The field from Figure 4 with velocities binned to the resolution of the SOAR telescope for direct comparison. \label{fig:test}}
@@ -180,7 +189,8 @@ This test attempted to determine how the fitting process holds up against binned
 \end{figure}
 
 \subsection{Binned Down Turbulent Fields}
-This is the ultimate test, and will determine if VFF does okay in the worst case possible, but most realistic. DO THIS TEST AND PLOT THE RESULTS!!!
+\large This is the ultimate test, and will determine if VFF does okay in the worst case possible, but likely the most realistic. In a future draft of this paper, this test and an analysis will be included.
+%%%%%%%% DO THIS TEST AND PLOT THE RESULTS!!!
 %%%%%% WRITE FINDINGS FROM CHECKING THIS!!! %%%%%%%%%
 
 \subsection{Real Data}
@@ -189,12 +199,13 @@ This is the ultimate test, and will determine if VFF does okay in the worst case
 \begin{center}
 \includegraphics[width=0.34\textwidth]{tinygal.jpg}
 \end{center}
-\vspace{-0.4cm}\includegraphics[width=0.5\textwidth]{rawvels.pdf}
+\includegraphics[width=0.5\textwidth]{rawvels.pdf}
 \caption{The SDSS image and the SOAR spectrum of a galaxy in the survey. \label{fig:test}}
 \end{figure}
 
-With real data, VFF fits similarly to DiskFit, but with a larger degree of variance from the photometric counterparts. PRESENT AN ANALYSIS OF REAL DATA AND PHOTOMETRIC PROPERTIES TO BE DISCUSSED IN DISCUSSIONS AND CONCLUSIONS.
-%%%%%% WRITE FINDINGS FROM CHECKING THIS!!! %%%%%%%%%
+\large With real data, VFF fits similarly to DiskFit, but with a larger degree of variance from the photometric counterparts. Further analysis is necessary to describe these effects in detail, but a plot of the galaxy that has been used is shown here along with the data as reduced from the RESOLVE survey.
+%%%%%%% PRESENT AN ANALYSIS OF REAL DATA AND PHOTOMETRIC PROPERTIES 
+%%%%%%% TO BE DISCUSSED IN DISCUSSIONS AND CONCLUSIONS.
 
 
 %---------------------------------------------------------------------------------%
@@ -202,16 +213,19 @@ With real data, VFF fits similarly to DiskFit, but with a larger degree of varia
 %---------------------------------------------------------------------------------%
 
 \section{Discussion}
+\large It would be odd to assume that every spiral galaxy is mostly circular, or even that they all have the same disk height, but we do this frequently in analyses. As one observes more irregular galaxies, it is obvious that the axial ratio of a galaxy is not the only parameter that defines a galaxy's inclination. Since VFF does very well with turbulence, it might be interesting to examine the turbulence found in real samples of data by fitting the velocity field and then subtracting off the fit, as phenomena that cause plane-perpendicular motion such as tidal stripping or merging are phenomena that would assuredly give lower inclination measurements. Is there an easy change that we could make to Hubble's simple equation (1) to give us more accurate results? In the future, we also hope to complete tests of homogeneity of the catalog by looking at the observed and expected distributions of inclinations in the volume.
+
+
 %%%%%%%% FINISH!!!! %%%%%%%%
+
 \section{Conclusions}
-%%%%%%%% FINISH!!!! %%%%%%%%
+\large We have found that Hubble's photometric inclination measurement technique is not accurate and we have also found that VFF does just as well as DiskFit in most regards but for small galaxies where it significantly outperforms DiskFit, but we have yet to examine the differences between kinematic and photometric inclinations again using VFF, or to compare those differences with photometric properties of galaxies. When this is done, we will be able to answer whether or not there is an easy fix to obtain more accurate photometric inclination measurements, and if so provide a new prescription to accurately defining inclinations of galaxies photometrically. 
+
 \section{Acknowledgements}
-%%%%%%%% FINISH!!!! %%%%%%%%
-\newpage
+\large I would like to first thank Sheila Kannappan for facilitating and consulting on the application of tests in this project. I would like also to thank Charlie Bonfield for his contributions writing the initial code and continuing to aid in the implementation of additional alterations. Finally, I would like to thank team members of the RESOLVE survey for further assistance during the research process. This research was supported in part by the National Science Foundation under an REU supplement to CAREER award AST-0955368.
 
 \bibliographystyle{apj}
 \bibliography{references}
-
 %\section{Introduction}
 %
 %The introduction should contain sufficient

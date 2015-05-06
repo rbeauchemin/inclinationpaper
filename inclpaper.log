@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  4 MAY 2015 21:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  5 MAY 2015 20:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -301,9 +301,6 @@ LaTeX Warning: Label `fig:test' multiply defined.
 
 LaTeX Warning: Label `fig:test' multiply defined.
 
-
-LaTeX Warning: Label `fig:test' multiply defined.
-
 )
 \openout1 = `inclpaper.aux'.
 
@@ -382,197 +379,215 @@ e
 ))
 \openout3 = `inclpaperNotes.bib'.
 
-LaTeX Font Info:    Try loading font information for U+lasy on input line 65.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 67.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+LaTeX Font Info:    Try loading font information for U+msa on input line 67.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 65.
+LaTeX Font Info:    Try loading font information for U+msb on input line 67.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<hist1.pdf, id=1, 587.19376pt x 442.65375pt>
-File: hist1.pdf Graphic file (type pdf)
- <use hist1.pdf>
-Package pdftex.def Info: hist1.pdf used on input line 80.
-(pdftex.def)             Requested size: 256.55872pt x 193.40385pt.
+) [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 80--81
-[][] 
- []
+LaTeX Font Warning: Command \large invalid in math mode on input line 92.
 
-[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./his
-t1.pdf>] <rf0071example.pdf, id=58, 587.19376pt x 442.65375pt>
+<rf0071example.pdf, id=19, 587.19376pt x 442.65375pt>
 File: rf0071example.pdf Graphic file (type pdf)
-
-<use rf0071example.pdf>
-Package pdftex.def Info: rf0071example.pdf used on input line 107.
+ <use rf0071example.pdf>
+Package pdftex.def Info: rf0071example.pdf used on input line 105.
 (pdftex.def)             Requested size: 256.55872pt x 193.40385pt.
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 107--108
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 105--106
 [][] 
  []
 
-<naxisratio-eps-converted-to.pdf, id=59, 505.89pt x 325.215pt>
+<naxisratio-eps-converted-to.pdf, id=20, 505.89pt x 325.215pt>
 File: naxisratio-eps-converted-to.pdf Graphic file (type pdf)
 
 <use naxisratio-eps-converted-to.pdf>
-Package pdftex.def Info: naxisratio-eps-converted-to.pdf used on input line 115
+Package pdftex.def Info: naxisratio-eps-converted-to.pdf used on input line 113
 .
 (pdftex.def)             Requested size: 256.55872pt x 164.93445pt.
 
-<nasymHa-eps-converted-to.pdf, id=60, 505.89pt x 325.215pt>
+<nasymHa-eps-converted-to.pdf, id=21, 505.89pt x 325.215pt>
 File: nasymHa-eps-converted-to.pdf Graphic file (type pdf)
 
 <use nasymHa-eps-converted-to.pdf>
-Package pdftex.def Info: nasymHa-eps-converted-to.pdf used on input line 116.
+Package pdftex.def Info: nasymHa-eps-converted-to.pdf used on input line 114.
 (pdftex.def)             Requested size: 256.55872pt x 164.93445pt.
 
-<nmorph-eps-converted-to.pdf, id=61, 505.89pt x 325.215pt>
+<nmorph-eps-converted-to.pdf, id=22, 505.89pt x 325.215pt>
 File: nmorph-eps-converted-to.pdf Graphic file (type pdf)
 
 <use nmorph-eps-converted-to.pdf>
-Package pdftex.def Info: nmorph-eps-converted-to.pdf used on input line 117.
+Package pdftex.def Info: nmorph-eps-converted-to.pdf used on input line 115.
 (pdftex.def)             Requested size: 256.55872pt x 164.93445pt.
 
-<nradr90p-eps-converted-to.pdf, id=62, 505.89pt x 325.215pt>
+<nradr90p-eps-converted-to.pdf, id=23, 505.89pt x 325.215pt>
 File: nradr90p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use nradr90p-eps-converted-to.pdf>
-Package pdftex.def Info: nradr90p-eps-converted-to.pdf used on input line 118.
+Package pdftex.def Info: nradr90p-eps-converted-to.pdf used on input line 116.
 (pdftex.def)             Requested size: 256.55872pt x 164.93445pt.
 
-<stuff-Recovered-eps-converted-to.pdf, id=63, 785.93625pt x 58.2175pt>
+<stuff-Recovered-eps-converted-to.pdf, id=24, 785.93625pt x 58.2175pt>
 File: stuff-Recovered-eps-converted-to.pdf Graphic file (type pdf)
 
 <use stuff-Recovered-eps-converted-to.pdf>
 Package pdftex.def Info: stuff-Recovered-eps-converted-to.pdf used on input lin
-e 119.
+e 117.
 (pdftex.def)             Requested size: 256.55872pt x 19.00484pt.
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 115--120
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 113--118
 [][]
  []
 
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 115--120
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 113--118
 []
  []
 
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 115--120
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 113--118
 []
  []
 
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 115--120
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 113--118
 []
  []
 
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 115--120
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 113--118
 [] 
  []
 
 
-LaTeX Warning: Float too large for page by 28.3739pt on input line 121.
+LaTeX Warning: Float too large for page by 28.3739pt on input line 119.
 
-[2 <./rf0071example.pdf> <./naxisratio-eps-converted-to.pdf> <./nasymHa-eps-con
-verted-to.pdf> <./nmorph-eps-converted-to.pdf> <./nradr90p-eps-converted-to.pdf
-> <./stuff-Recovered-eps-converted-to.pdf>]
-<perfectexamp.pdf, id=119, 722.7pt x 544.73514pt>
-File: perfectexamp.pdf Graphic file (type pdf)
- <use perfectexamp.pdf>
-Package pdftex.def Info: perfectexamp.pdf used on input line 150.
-(pdftex.def)             Requested size: 256.55872pt x 193.37816pt.
+[2 <./rf0071example.pdf>]
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 150--151
-[][] 
- []
-
-<turbexamp.pdf, id=120, 652.23674pt x 510.40688pt>
-File: turbexamp.pdf Graphic file (type pdf)
- <use turbexamp.pdf>
-Package pdftex.def Info: turbexamp.pdf used on input line 160.
-(pdftex.def)             Requested size: 256.55872pt x 200.77127pt.
-
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 160--161
-[][] 
- []
-
-<turbtest.pdf, id=121, 785.03285pt x 599.84097pt>
-File: turbtest.pdf Graphic file (type pdf)
- <use turbtest.pdf>
-Package pdftex.def Info: turbtest.pdf used on input line 165.
-(pdftex.def)             Requested size: 256.55872pt x 196.03519pt.
-
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 165--166
-[][] 
- []
+LaTeX Warning: A float is stuck (cannot be placed) on input line 122.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<binnedvels.pdf, id=122, 656.75362pt x 508.60014pt>
-File: binnedvels.pdf Graphic file (type pdf)
- <use binnedvels.pdf>
-Package pdftex.def Info: binnedvels.pdf used on input line 173.
-(pdftex.def)             Requested size: 256.55872pt x 198.6792pt.
-
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 173--174
-[][] 
- []
-
-[3 <./perfectexamp.pdf> <./turbexamp.pdf
-
-pdfTeX warning: /usr/texbin/pdflatex (file ./turbexamp.pdf): PDF inclusion: mul
-tiple pdfs with page group included in a single page
->]
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 176.
-
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 176.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 122.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
-<binnedtest.pdf, id=167, 785.93625pt x 601.64778pt>
-File: binnedtest.pdf Graphic file (type pdf)
- <use binnedtest.pdf>
-Package pdftex.def Info: binnedtest.pdf used on input line 178.
-(pdftex.def)             Requested size: 256.55872pt x 196.40535pt.
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 178--179
+Underfull \hbox (badness 3333) in paragraph at lines 132--133
+[]\OT1/cmr/m/n/12 A pub-licly avail-able code called Disk-Fit
+ []
+
+[3 <./naxisratio-eps-converted-to.pdf> <./nasymHa-eps-converted-to.pdf> <./nmor
+ph-eps-converted-to.pdf> <./nradr90p-eps-converted-to.pdf> <./stuff-Recovered-e
+ps-converted-to.pdf>]
+
+LaTeX Font Warning: Command \large invalid in math mode on input line 138.
+
+<perfectexamp.pdf, id=83, 722.7pt x 544.73514pt>
+File: perfectexamp.pdf Graphic file (type pdf)
+ <use perfectexamp.pdf>
+Package pdftex.def Info: perfectexamp.pdf used on input line 156.
+(pdftex.def)             Requested size: 256.55872pt x 193.37816pt.
+
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 156--157
+[][] 
+ []
+
+<turbexamp.pdf, id=84, 652.23674pt x 510.40688pt>
+File: turbexamp.pdf Graphic file (type pdf)
+ <use turbexamp.pdf>
+Package pdftex.def Info: turbexamp.pdf used on input line 167.
+(pdftex.def)             Requested size: 256.55872pt x 200.77127pt.
+
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 167--168
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<tinygal.jpg, id=168, 602.25pt x 602.25pt>
+<turbtest.pdf, id=85, 785.03285pt x 599.84097pt>
+File: turbtest.pdf Graphic file (type pdf)
+ <use turbtest.pdf>
+Package pdftex.def Info: turbtest.pdf used on input line 172.
+(pdftex.def)             Requested size: 256.55872pt x 196.03519pt.
+
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 172--173
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./perfectexamp.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 178.
+
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 178.
+
+
+Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
+
+<binnedvels.pdf, id=110, 656.75362pt x 508.60014pt>
+File: binnedvels.pdf Graphic file (type pdf)
+ <use binnedvels.pdf>
+Package pdftex.def Info: binnedvels.pdf used on input line 182.
+(pdftex.def)             Requested size: 256.55872pt x 198.6792pt.
+
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 182--183
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<binnedtest.pdf, id=111, 785.93625pt x 601.64778pt>
+File: binnedtest.pdf Graphic file (type pdf)
+ <use binnedtest.pdf>
+Package pdftex.def Info: binnedtest.pdf used on input line 187.
+(pdftex.def)             Requested size: 256.55872pt x 196.40535pt.
+
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 187--188
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<tinygal.jpg, id=112, 602.25pt x 602.25pt>
 File: tinygal.jpg Graphic file (type jpg)
  <use tinygal.jpg>
-Package pdftex.def Info: tinygal.jpg used on input line 190.
+Package pdftex.def Info: tinygal.jpg used on input line 200.
 (pdftex.def)             Requested size: 174.45804pt x 174.45503pt.
 
-<rawvels.pdf, id=169, 657.65701pt x 507.69673pt>
+<rawvels.pdf, id=113, 657.65701pt x 507.69673pt>
 File: rawvels.pdf Graphic file (type pdf)
  <use rawvels.pdf>
-Package pdftex.def Info: rawvels.pdf used on input line 192.
+Package pdftex.def Info: rawvels.pdf used on input line 202.
 (pdftex.def)             Requested size: 256.55872pt x 198.0629pt.
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 192--193
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 202--203
 [] 
  []
 
-[4 <./turbtest.pdf> <./binnedvels.pdf
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <./turbexamp.pdf> <./turbtest.pdf
+
+pdfTeX warning: /usr/texbin/pdflatex (file ./turbtest.pdf): PDF inclusion: mult
+iple pdfs with page group included in a single page
+> <./binnedvels.pdf
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./binnedvels.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
@@ -580,39 +595,46 @@ ltiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./binnedtest.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
-> <./tinygal.jpg> <./rawvels.pdf
+>]
 
-pdfTeX warning: /usr/texbin/pdflatex (file ./rawvels.pdf): PDF inclusion: multi
-ple pdfs with page group included in a single page
->] (./inclpaper.bbl) [5] (./inclpaper.aux)
+LaTeX Warning: A float is stuck (cannot be placed) on input line 217.
+
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 217.
+
+
+Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
+
+(./inclpaper.bbl) [6 <./tinygal.jpg> <./rawvels.pdf>] (./inclpaper.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4925 strings out of 493117
- 65239 string characters out of 6135433
- 145395 words of memory out of 5000000
- 8308 multiletter control sequences out of 15000+600000
- 7900 words of font info for 32 fonts, out of 8000000 for 9000
+ 4949 strings out of 493117
+ 65476 string characters out of 6135433
+ 146395 words of memory out of 5000000
+ 8323 multiletter control sequences out of 15000+600000
+ 12564 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,6n,28p,1356b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,5n,28p,1723b,315s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pf
-b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on inclpaper.pdf (5 pages, 2577979 bytes).
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on inclpaper.pdf (6 pages, 2585187 bytes).
 PDF statistics:
- 336 PDF objects out of 1000 (max. 8388607)
+ 304 PDF objects out of 1000 (max. 8388607)
  111 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
